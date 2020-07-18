@@ -5,6 +5,8 @@ const express = require("express"),
       geocode = require("./utils/geocode"),
       forecast = require("./utils/forecast");
 
+      const port = process.env.PORT || 3333
+
 app.use(express.static(path.join(__dirname,'../public')));
 const viewspath = path.join(__dirname, '../templates/views');
 const partialspath = path.join(__dirname,'../templates/partials');
@@ -80,6 +82,6 @@ app.get("*",(req,res)=>{
     });
 });
 
-app.listen(3333,()=>{
+app.listen(port,()=>{
     console.log("Server Setup")
 });
