@@ -16,7 +16,8 @@ weatherForm.addEventListener('submit',(event)=>{
     fetch(`https://gagan-weather-app.herokuapp.com/weather?address=${location}`).then((response)=>{
         response.json().then((data)=>{
             if(data.error){
-               message1.textContent = data.error;
+            //    message1.textContent = data.error;
+            console.log(data.error);
             }else{
                 message1.textContent = data.location;
                 message2.textContent = data.forecast;

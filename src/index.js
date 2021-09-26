@@ -1,11 +1,19 @@
-const express = require("express"),
-      app     = express(),
-      path    = require("path"),
-      hbs     = require("hbs"),
-      geocode = require("./utils/geocode"),
-      forecast = require("./utils/forecast");
+const express  = require("express"),
+      app      = express(),
+      path     = require("path"),
+      hbs      = require("hbs"),
+      geocode  = require("./utils/geocode"),
+      forecast = require("./utils/forecast"),
+      cors     = require("cors");
+require('dotenv').config();
 
-      const port = process.env.PORT || 3333
+const corsOptions ={
+   origin:'*', 
+   credentials:true,            //access-control-allow-credentials:true
+   optionSuccessStatus:200,
+}
+
+const port = process.env.PORT || 3333
 
 app.use(express.static(path.join(__dirname,'../public')));
 const viewspath = path.join(__dirname, '../templates/views');
